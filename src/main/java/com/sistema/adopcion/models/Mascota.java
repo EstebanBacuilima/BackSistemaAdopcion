@@ -1,0 +1,50 @@
+package com.sistema.adopcion.models;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Setter
+@Getter
+@Entity
+public class Mascota {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_mascota")
+    private Integer id_mascota;
+
+    @Column(name = "chip_mascota")
+    private String chip_mascota;
+
+    @Column(name = "nombre_mascota")
+    private String nombre_mascota;
+
+    @Column(name = "sexo")
+    private String sexo;
+
+    @Column(name = "especie")
+    private String especie;
+
+    @Column(name = "raza")
+    private String raza;
+
+    @Column(name = "color")
+    private String color;
+
+    @Column(name = "descripcion", nullable = true)
+    private String descripcion;
+
+    @Column(name = "foto", nullable = true)
+    private String foto;
+
+    @Column(name = "estado_mascota")
+    private boolean estado_mascota;
+
+    @Column(name = "estado_adopcion")
+    private boolean estado_adopcion;
+
+
+
+}
