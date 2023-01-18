@@ -34,4 +34,8 @@ public class Usuario {
     @JoinColumn(name="id_persona",referencedColumnName ="id_persona")
     private Persona persona;
 
+    @ManyToOne
+    @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
+    private Fundacion fundacion;
+
 }

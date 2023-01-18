@@ -37,5 +37,7 @@ public class Seguimiento {
     @Column(name="estado")
     private boolean estado;
 
-
+    @ManyToOne
+    @JoinColumn(name="id_mascota",referencedColumnName ="id_mascota")
+    private Mascota mascota;
 }

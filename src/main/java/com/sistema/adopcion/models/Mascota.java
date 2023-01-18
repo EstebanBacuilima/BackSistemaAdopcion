@@ -45,6 +45,11 @@ public class Mascota {
     @Column(name = "estado_adopcion")
     private boolean estado_adopcion;
 
+    @ManyToOne
+    @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
+    private Fundacion fundacion;
 
-
+    @ManyToOne
+    @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")
+    private Usuario usuario;
 }

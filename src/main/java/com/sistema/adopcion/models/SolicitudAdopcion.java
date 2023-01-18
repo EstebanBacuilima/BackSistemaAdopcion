@@ -28,4 +28,12 @@ public class SolicitudAdopcion {
 
     @Column(name="estado")
     private boolean estado;
+
+    @ManyToOne
+    @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name="id_mascota",referencedColumnName ="id_mascota")
+    private Mascota mascota;
 }
