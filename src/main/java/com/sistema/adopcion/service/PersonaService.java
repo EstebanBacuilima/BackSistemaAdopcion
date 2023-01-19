@@ -1,4 +1,6 @@
 package com.sistema.adopcion.service;
 
-public interface PersonaService {
+import com.sistema.adopcion.models.Persona;
+
+public interface PersonaService extends GenericService<Persona, Integer> {
 }
