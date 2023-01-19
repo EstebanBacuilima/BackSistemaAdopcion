@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MascotaServiceImpl extends GenericServiceImpl<Mascota, Integer> implements MascotaService {
 
@@ -13,8 +15,15 @@ public class MascotaServiceImpl extends GenericServiceImpl<Mascota, Integer> imp
     MascotasRespository mascotasRespository;
 
     @Override
+    public List<Mascota> porIdFundacion(Integer id_fundacion) {
+        return mascotasRespository.findByFundacionIdFundacion(id_fundacion);
+    }
+
+    @Override
     public CrudRepository<Mascota, Integer> getDao() {
         return mascotasRespository;
     }
+
+
 
 }
