@@ -1,9 +1,11 @@
 package com.sistema.adopcion.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -38,4 +40,16 @@ public class Usuario {
     @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
     private Fundacion fundacion;
 
+    // Reference
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<SolicitudAdopcion> solicitudAdopciones;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<Mascota> mascotas;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "usuario")
+    private List<Voluntario> voluntarios;
 }
