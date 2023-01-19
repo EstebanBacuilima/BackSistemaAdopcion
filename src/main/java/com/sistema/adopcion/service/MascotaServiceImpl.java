@@ -20,6 +20,11 @@ public class MascotaServiceImpl extends GenericServiceImpl<Mascota, Integer> imp
     }
 
     @Override
+    public List<Mascota> buscarPorRaza(String razas) {
+        return mascotasRespository.buscarPorRaza(razas);
+    }
+
+    @Override
     public CrudRepository<Mascota, Integer> getDao() {
         return mascotasRespository;
     }

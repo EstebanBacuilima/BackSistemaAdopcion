@@ -26,6 +26,11 @@ public class MascotaController {
         return new ResponseEntity<>(listaProductos, HttpStatus.OK);
     }
 
+    @GetMapping("/listarPorRaza/{razas}")
+    public ResponseEntity<List<Mascota>> obtenerListaMascotasRaza(@PathVariable String razas) {
+        return new ResponseEntity<>(mascotaService.buscarPorRaza(razas), HttpStatus.OK);
+    }
+
     @PostMapping("/crear")
     public ResponseEntity<Mascota> crear(@RequestBody Mascota c) {
         return new ResponseEntity<>(mascotaService.save(c), HttpStatus.CREATED);
