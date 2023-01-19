@@ -27,9 +27,5 @@ public class Voluntario {
     @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")
     private Usuario usuario;
 
-    @ManyToOne
-    @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
-    private Fundacion fundacion;
-
 
 }

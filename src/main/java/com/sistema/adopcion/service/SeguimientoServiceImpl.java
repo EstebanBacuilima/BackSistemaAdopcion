@@ -4,7 +4,9 @@ import com.sistema.adopcion.models.Seguimiento;
 import com.sistema.adopcion.repository.SeguimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SeguimientoServiceImpl extends GenericServiceImpl<Seguimiento, Integer> implements SeguimientoService {
 
     @Autowired

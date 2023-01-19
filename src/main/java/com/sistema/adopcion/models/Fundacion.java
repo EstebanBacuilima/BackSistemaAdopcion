@@ -54,7 +54,4 @@ public class Fundacion {
     @OneToMany(mappedBy = "fundacion")
     private List<Usuario> usuarios;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "fundacion")
-    private List<Voluntario> voluntarios;
 }
