@@ -10,7 +10,7 @@ import java.util.Optional;
 public abstract class GenericServiceImpl<T, ID extends Serializable> implements GenericService<T, ID> {
 
     public abstract CrudRepository<T, ID> getDao();
-    
+
     @Override
     public T save(T Entity) {
         return getDao().save(Entity);
@@ -38,5 +38,5 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
         getDao().deleteById(id);
     }
 
-  
+
 }

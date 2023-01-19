@@ -5,7 +5,7 @@ import com.sistema.adopcion.repository.MascotasRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 
-public class MascotaServiceImpl  extends GenericServiceImpl<Mascota, Integer> implements MascotaService {
+public class MascotaServiceImpl extends GenericServiceImpl<Mascota, Integer> implements MascotaService {
 
     @Autowired
     MascotasRespository mascotasRespository;

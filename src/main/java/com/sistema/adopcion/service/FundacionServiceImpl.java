@@ -14,5 +14,4 @@ public class FundacionServiceImpl extends GenericServiceImpl<Fundacion, Integer>
     public CrudRepository<Fundacion, Integer> getDao() {
         return fundacionRepository;
     }
-
 }
