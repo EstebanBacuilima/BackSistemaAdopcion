@@ -13,4 +13,7 @@ public interface MascotasRespository extends JpaRepository<Mascota, Integer> {
     List<Mascota> buscarPorRaza(@Param("razas") String razas);
 
     List<Mascota> findByFundacionIdFundacion(Integer id_fundacion);
+
+    List<Mascota> findByUsuarioIdUsuario(Integer idUsuario);
+
 }

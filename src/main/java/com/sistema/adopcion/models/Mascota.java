@@ -15,7 +15,7 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_mascota")
-    private Integer id_mascota;
+    private Integer idMascota;
 
     @Column(name = "chip_mascota")
     private String chip_mascota;

@@ -14,7 +14,7 @@ public class SolicitudAdopcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_solicitud_adopcion")
-    private Integer id_solicitud_adopcion;
+    private Integer idSolicitudAdopcion;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_solicitud_adopcion", nullable = false, updatable = false)

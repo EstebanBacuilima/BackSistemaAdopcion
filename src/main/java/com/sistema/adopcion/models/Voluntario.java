@@ -12,7 +12,7 @@ public class Voluntario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_voluntario")
-    private Integer id_voluntario;
+    private Integer idVoluntario;
 
     @Column(name="area_trabajo")
     private String area_trabajo;

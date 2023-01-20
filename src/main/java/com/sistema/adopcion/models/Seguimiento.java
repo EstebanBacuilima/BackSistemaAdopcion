@@ -13,7 +13,7 @@ public class Seguimiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id_Seguimiento;
+    private Integer idSeguimiento;
 
     @Column(name="fecha_seguimiento")
     @Temporal(TemporalType.TIMESTAMP)

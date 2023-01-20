@@ -16,4 +16,17 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> imp
     public CrudRepository<Usuario, Integer> getDao() {
         return usuarioRespository;
     }
+
+    @Override
+    public Usuario login(String username, String password) {
+        return usuarioRespository.findByUsernameAndPassword(username, password);
+    }
+
+//    @Override
+//    public Usuario actualizar(Usuario usuario, Integer idUsuario) {
+//
+//        return usuarioRespository.actualizar(usuario, idUsuario);
+//    }
+
+
 }

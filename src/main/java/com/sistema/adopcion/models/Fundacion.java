@@ -18,7 +18,7 @@ public class Fundacion {
     private Integer idFundacion;
 
     @Column(name = "ruc")
-    private Number ruc;
+    private String ruc;
 
     @Column(name = "nombre_fundacion")
     private String nombre_fundacion;

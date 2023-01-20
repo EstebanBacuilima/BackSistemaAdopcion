@@ -20,6 +20,11 @@ public class MascotaServiceImpl extends GenericServiceImpl<Mascota, Integer> imp
     }
 
     @Override
+    public List<Mascota> porIdUsuario(Integer idUsuario) {
+        return mascotasRespository.findByUsuarioIdUsuario(idUsuario);
+    }
+
+    @Override
     public List<Mascota> buscarPorRaza(String razas) {
         return mascotasRespository.buscarPorRaza(razas);
     }

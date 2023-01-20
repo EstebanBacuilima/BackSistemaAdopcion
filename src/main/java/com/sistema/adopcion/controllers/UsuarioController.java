@@ -30,5 +30,27 @@ public class UsuarioController {
     public void eliminar(@PathVariable Integer id) {
         usuarioService.delete(id);
     }
+
+    @RequestMapping(value = "login/{username}/{password}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Usuario login(@PathVariable String username, @PathVariable String password){
+        return usuarioService.login(username, password);
+    }
+
+    @PutMapping("actualizar/{id}")
+    public ResponseEntity<Usuario> updateUser(@PathVariable Integer id, @RequestBody Usuario c) {
+        if (usuarioService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setUsername(c.getUsername());
+        c.setPassword(c.getPassword());
+        c.setRol(c.getRol());
+        c.setFoto_perfil(c.getFoto_perfil());
+        c.setEstado(c.isEstado());
+
+        Usuario newObjeto = usuarioService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
 }
 

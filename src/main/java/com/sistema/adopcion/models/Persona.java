@@ -16,7 +16,8 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_persona;
+    @Column(name = "id_persona")
+    private Integer idPersona;
 
     private String cedula;
     private String nombres;
