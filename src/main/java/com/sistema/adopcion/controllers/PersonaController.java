@@ -30,4 +30,21 @@ public class PersonaController {
         personaService.delete(id);
     }
 
+    @PutMapping("actualizar/{id}")
+    public ResponseEntity<Persona> actualizarPersona(@PathVariable Integer id, @RequestBody Persona c) {
+        if (personaService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setNombres(c.getNombres());
+        c.setApellidos(c.getApellidos());
+        c.setFechaNacimiento(c.getFechaNacimiento());
+        c.setGenero(c.getGenero());
+        c.setDireccion(c.getDireccion());
+        c.setCorreo(c.getCorreo());
+        c.setTelefono(c.getTelefono());
+        c.setCelular(c.getCelular());
+
+        Persona newObjeto = personaService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
 }

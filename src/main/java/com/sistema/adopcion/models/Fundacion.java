@@ -41,6 +41,9 @@ public class Fundacion {
     @Column(name = "logo")
     private String logo;
 
+    @Column(name = "estado")
+    private boolean estado;
+
     @ManyToOne
     @JoinColumn(name="id_persona",referencedColumnName ="id_persona")
     private Persona persona;

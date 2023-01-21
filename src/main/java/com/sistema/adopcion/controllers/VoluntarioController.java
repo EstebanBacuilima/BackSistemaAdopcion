@@ -37,4 +37,17 @@ public class VoluntarioController {
         List<Voluntario> listaEncontrada= voluntarioService.listarPorEmpresa(id_fundacion);
         return new ResponseEntity<>(listaEncontrada, HttpStatus.OK);
     }
+
+    @PutMapping("actualizar/{id}")
+    public ResponseEntity<Voluntario> actualizarVoluntario(@PathVariable Integer id, @RequestBody Voluntario c) {
+        if (voluntarioService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setArea_trabajo(c.getArea_trabajo());
+        c.setCargo(c.getCargo());
+        c.setEstado(c.isEstado());
+
+        Voluntario newObjeto = voluntarioService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
 }

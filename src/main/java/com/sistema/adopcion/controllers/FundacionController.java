@@ -31,4 +31,22 @@ public class FundacionController {
         fundacionService.delete(id);
     }
 
+    @PutMapping("actualizar/{id}")
+    public ResponseEntity<Fundacion> actualizarFundacion(@PathVariable Integer id, @RequestBody Fundacion c) {
+        if (fundacionService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setNombre_fundacion(c.getNombre_fundacion());
+        c.setDireccion(c.getDireccion());
+        c.setTelefono(c.getTelefono());
+        c.setCorreo(c.getCorreo());
+        c.setAcronimo(c.getAcronimo());
+        c.setMision(c.getMision());
+        c.setLogo(c.getLogo());
+        c.setEstado(c.isEstado());
+
+        Fundacion newObjeto = fundacionService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
+
 }
