@@ -34,9 +34,14 @@ public class UsuarioController {
     @RequestMapping(value = "login/{username}/{password}", method = RequestMethod.GET)
     @ResponseBody
     @CrossOrigin
-    public Usuario login(@PathVariable String username, @PathVariable String password){
-        return usuarioService.login(username, password);
+    public Object login(@PathVariable String username, @PathVariable String password){
+        Usuario usuario = usuarioService.login(username, password);
+        if (usuario == null) {
+            return "Usuario no encontrado";
+        }
+        return usuario;
     }
+    // antes estaba solo usuario
 
     @PutMapping("actualizar/{id}")
     public ResponseEntity<Usuario> updateUser(@PathVariable Integer id, @RequestBody Usuario c) {

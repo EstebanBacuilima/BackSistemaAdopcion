@@ -27,7 +27,7 @@ public class Fundacion {
     private String direccion;
 
     @Column(name = "telefono")
-    private Number telefono;
+    private String telefono;
 
     @Column(name = "correo")
     private String correo;
