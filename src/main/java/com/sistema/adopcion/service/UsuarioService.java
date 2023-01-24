@@ -6,6 +6,6 @@ public interface UsuarioService extends GenericService<Usuario, Integer>{
 
     Usuario login (String username, String password);
 
-    //Usuario actualizar(Usuario usuario, Integer idUsuario);
+    boolean porUsername(String username);
 
 }

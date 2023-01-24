@@ -22,11 +22,14 @@ public class UsuarioServiceImpl extends GenericServiceImpl<Usuario, Integer> imp
         return usuarioRespository.findByUsernameAndPassword(username, password);
     }
 
-//    @Override
-//    public Usuario actualizar(Usuario usuario, Integer idUsuario) {
-//
-//        return usuarioRespository.actualizar(usuario, idUsuario);
-//    }
+    @Override
+    public boolean porUsername(String username) {
+        if (usuarioRespository.findByUsername(username)!=null) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 
 }

@@ -16,4 +16,9 @@ public class PersonaServiceImpl extends GenericServiceImpl<Persona, Integer> imp
     public CrudRepository<Persona, Integer> getDao() {
         return personaRepository;
     }
+
+    @Override
+    public Persona porCedula(String cedula) {
+        return personaRepository.findByCedula(cedula);
+    }
 }

@@ -7,5 +7,6 @@ public interface UsuarioRespository extends JpaRepository<Usuario, Integer> {
 
     Usuario findByUsernameAndPassword(String username, String password);
 
-   // Usuario actualizar(Usuario usuario, Integer idUsuario);
+    Usuario findByUsername(String username);
+
 }

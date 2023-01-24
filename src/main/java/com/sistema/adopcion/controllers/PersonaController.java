@@ -8,7 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/persona")
 public class PersonaController {
@@ -20,9 +22,16 @@ public class PersonaController {
         return new ResponseEntity<>(personaService.findByAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/crear")
-    public ResponseEntity<Persona> crear(@RequestBody Persona c) {
-        return new ResponseEntity<>(personaService.save(c), HttpStatus.CREATED);
+    @RequestMapping(value = "/{idPersona}", method = RequestMethod.GET)
+    @ResponseBody
+    public Persona porId(@PathVariable Integer idPersona){
+        return personaService.findById(idPersona);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @ResponseBody
+    public Persona crearpersona(@RequestBody Persona persona) {
+        return personaService.save(persona);
     }
 
     @DeleteMapping("/eliminar/{id}")
@@ -46,5 +55,12 @@ public class PersonaController {
 
         Persona newObjeto = personaService.save(c);
         return ResponseEntity.ok(newObjeto);
+    }
+
+    @RequestMapping(value = "byCedula/{cedula}", method = RequestMethod.GET)
+    @ResponseBody
+    @CrossOrigin
+    public Persona porCedula(@PathVariable String cedula){
+        return personaService.porCedula(cedula);
     }
 }
