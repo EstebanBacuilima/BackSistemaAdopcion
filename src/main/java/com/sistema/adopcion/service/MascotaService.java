@@ -10,6 +10,7 @@ public interface MascotaService extends GenericService<Mascota, Integer>{
 
     List<Mascota> porIdUsuario(Integer idUsuario);
 
+    List<Mascota> listarMascotasDisponibles();
 
     List<Mascota> buscarPorRaza(String razas);
 

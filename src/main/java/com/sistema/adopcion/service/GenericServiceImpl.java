@@ -38,5 +38,15 @@ public abstract class GenericServiceImpl<T, ID extends Serializable> implements 
         getDao().deleteById(id);
     }
 
+    @Override
+    public boolean eliminar(ID id) {
+
+        if(getDao().findById(id)!=null) {
+            getDao().deleteById(id);
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }

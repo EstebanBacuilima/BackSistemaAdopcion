@@ -17,5 +17,19 @@ public class FundacionServiceImpl extends GenericServiceImpl<Fundacion, Integer>
         return fundacionRepository;
     }
 
+    @Override
+    public Fundacion porIdPersona(Integer idPersona) {
+        return fundacionRepository.findByPersonaIdPersona(idPersona);
+    }
+
+    @Override
+    public boolean porRuc(String ruc) {
+        if (fundacionRepository.findByRuc(ruc)!=null) {
+            return true;
+        }else {
+            return false;
+        }
+
+    }
 
 }

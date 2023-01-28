@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/imagen/")
+@RequestMapping(path = "/imagen")
 public class ImagenController {
 
     private static String UPLOAD_DIR = "uploads";

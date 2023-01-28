@@ -6,9 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -35,8 +34,8 @@ public class PersonaController {
     }
 
     @DeleteMapping("/eliminar/{id}")
-    public void eliminar(@PathVariable Integer id) {
-        personaService.delete(id);
+    public boolean eliminar(@PathVariable Integer id) {
+        return personaService.eliminar(id);
     }
 
     @PutMapping("actualizar/{id}")

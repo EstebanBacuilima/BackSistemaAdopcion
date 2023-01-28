@@ -13,5 +13,7 @@ public interface GenericService <T, ID extends Serializable>{
 
     public void delete(ID id);
 
+    boolean eliminar(ID id);
+
 
 }
