@@ -1,6 +1,7 @@
 package com.sistema.adopcion.controllers;
 
 import com.sistema.adopcion.models.Mascota;
+import com.sistema.adopcion.models.Persona;
 import com.sistema.adopcion.models.Usuario;
 import com.sistema.adopcion.service.MascotaService;
 import com.sistema.adopcion.service.UsuarioService;
@@ -91,5 +92,10 @@ public class MascotaController {
         return ResponseEntity.ok(newObjeto);
     }
 
+    @RequestMapping(value = "byChipMascota/{chipMascota}", method = RequestMethod.GET)
+    @ResponseBody
+    public Mascota porChipMascota(@PathVariable String chipMascota){
+        return mascotaService.buscarPorChipMascota(chipMascota);
+    }
 
 }

@@ -18,7 +18,7 @@ public class Mascota {
     private Integer idMascota;
 
     @Column(name = "chip_mascota")
-    private String chip_mascota;
+    private String chipMascota;
 
     @Column(name = "nombre_mascota")
     private String nombre_mascota;

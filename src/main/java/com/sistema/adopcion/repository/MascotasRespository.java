@@ -19,4 +19,6 @@ public interface MascotasRespository extends JpaRepository<Mascota, Integer> {
 
     List<Mascota> findByUsuarioIdUsuario(Integer idUsuario);
 
+    Mascota findByChipMascota(String chipMascota);
+
 }

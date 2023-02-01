@@ -58,7 +58,6 @@ public class PersonaController {
 
     @RequestMapping(value = "byCedula/{cedula}", method = RequestMethod.GET)
     @ResponseBody
-    @CrossOrigin
     public Persona porCedula(@PathVariable String cedula){
         return personaService.porCedula(cedula);
     }

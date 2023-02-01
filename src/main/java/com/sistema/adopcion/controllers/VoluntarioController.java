@@ -22,7 +22,7 @@ public class VoluntarioController {
         return new ResponseEntity<>(voluntarioService.findByAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/crear")
+    @PostMapping("/")
     public ResponseEntity<Voluntario> crear(@RequestBody Voluntario c) {
         return new ResponseEntity<>(voluntarioService.save(c), HttpStatus.CREATED);
     }

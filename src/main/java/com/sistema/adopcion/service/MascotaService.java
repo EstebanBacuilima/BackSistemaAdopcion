@@ -14,4 +14,6 @@ public interface MascotaService extends GenericService<Mascota, Integer>{
 
     List<Mascota> buscarPorRaza(String razas);
 
+    Mascota buscarPorChipMascota(String chipMascota);
+
 }
