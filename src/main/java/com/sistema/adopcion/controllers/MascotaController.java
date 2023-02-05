@@ -26,6 +26,13 @@ public class MascotaController {
         return new ResponseEntity<>(mascotaService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/porId/{idMascota}")
+    @ResponseBody
+    public Mascota porId(@PathVariable Integer idMascota){
+        return mascotaService.findById(idMascota);
+    }
+
+
     @GetMapping("/listarDisponibles")
     public ResponseEntity<List<Mascota>> obtenerListaMascotasDisponibles() {
         return new ResponseEntity<>(mascotaService.listarMascotasDisponibles(), HttpStatus.OK);
@@ -88,6 +95,16 @@ public class MascotaController {
         c.setUsuario(usuario);
         c.setEstado_adopcion(c.isEstado_adopcion());
 
+        Mascota newObjeto = mascotaService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
+
+    @PutMapping("actualizarEstadoMascota/{id}")
+    public ResponseEntity<Mascota> actualizarEstadoMascota(@PathVariable Integer id, @RequestBody Mascota c) {
+        if (mascotaService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setEstado_adopcion(c.isEstado_adopcion());
         Mascota newObjeto = mascotaService.save(c);
         return ResponseEntity.ok(newObjeto);
     }

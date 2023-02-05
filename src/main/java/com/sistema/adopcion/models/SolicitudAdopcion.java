@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Setter
 @Getter
@@ -17,17 +18,11 @@ public class SolicitudAdopcion {
     private Integer idSolicitudAdopcion;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "fecha_solicitud_adopcion", nullable = false, updatable = false)
+    @Column(name = "fecha_solicitud_adopcion")
     private Date fecha_solicitud_adopcion;
 
-    @Column(name = "razon")
-    private String razon;
-
-    @Column(name = "descripcion", nullable = true)
-    private String descripcion;
-
     @Column(name="estado")
-    private boolean estado;
+    private char estado;
 
     @ManyToOne
     @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")

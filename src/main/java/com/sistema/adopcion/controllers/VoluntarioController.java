@@ -1,6 +1,7 @@
 package com.sistema.adopcion.controllers;
 
 import com.sistema.adopcion.models.Mascota;
+import com.sistema.adopcion.models.Usuario;
 import com.sistema.adopcion.models.Voluntario;
 import com.sistema.adopcion.service.VoluntarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +28,18 @@ public class VoluntarioController {
         return new ResponseEntity<>(voluntarioService.save(c), HttpStatus.CREATED);
     }
 
+    @GetMapping("/porId/{idVoluntario}")
+    @ResponseBody
+    public Voluntario porId(@PathVariable Integer idVoluntario){
+        return voluntarioService.findById(idVoluntario);
+    }
+
     @DeleteMapping("/eliminar/{id}")
     public void eliminar(@PathVariable Integer id) {
         voluntarioService.delete(id);
     }
 
+    // PONERLE NORMALITO JAJA
     @GetMapping("/listarVoluntariosPorFundacion/{id_fundacion}")
     public ResponseEntity<List<Voluntario>> getByEmpresa(@PathVariable Integer id_fundacion) {
         List<Voluntario> listaEncontrada= voluntarioService.listarPorEmpresa(id_fundacion);
