@@ -32,11 +32,11 @@ public class Usuario {
     @Column(name="estado")
     private boolean estado;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="id_persona",referencedColumnName ="id_persona")
     private Persona persona;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
     private Fundacion fundacion;
 
