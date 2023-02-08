@@ -3,6 +3,7 @@ package com.sistema.adopcion.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.List;
@@ -32,11 +33,13 @@ public class Usuario {
     @Column(name="estado")
     private boolean estado;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    //(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name="id_persona",referencedColumnName ="id_persona")
     private Persona persona;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    //(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name="id_fundacion",referencedColumnName ="id_fundacion")
     private Fundacion fundacion;
 
