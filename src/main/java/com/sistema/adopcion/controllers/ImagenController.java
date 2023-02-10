@@ -21,6 +21,7 @@ public class ImagenController {
         Path path = Paths.get(UPLOAD_DIR + "/" + image.getOriginalFilename());
         Files.write(path, bytes);
     }
+
     @GetMapping("/images/{imageName}")
     public byte[] getImagen(@PathVariable String imageName) throws IOException {
         Path path = Paths.get(UPLOAD_DIR + "/" + imageName);

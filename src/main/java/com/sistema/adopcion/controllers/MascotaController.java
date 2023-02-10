@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -36,6 +37,18 @@ public class MascotaController {
     @GetMapping("/listarDisponibles")
     public ResponseEntity<List<Mascota>> obtenerListaMascotasDisponibles() {
         return new ResponseEntity<>(mascotaService.listarMascotasDisponibles(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listarMascotasEnSeguimiento")
+    public ResponseEntity<List<Mascota>> obtenerListaMascotasEnSeguimiento() {
+        List<Mascota> listAlmacenar = mascotaService.findByAll();
+        List<Mascota> listActivos = new ArrayList<>();
+        for (int i = 0 ; i < listAlmacenar.size() ; i++){
+            if (listAlmacenar.get(i).isEstado_seguimiento() == true){
+                listActivos.add(listAlmacenar.get(i));
+            }
+        }
+        return new ResponseEntity<>(listActivos, HttpStatus.OK);
     }
 
     @GetMapping("/listarMacotasPorFundacion/{id_fundacion}")
@@ -93,6 +106,7 @@ public class MascotaController {
         Usuario usuario = usuarioService.findById(c.getUsuario().getIdUsuario());
 
         c.setUsuario(usuario);
+        c.setEstado_seguimiento(c.isEstado_seguimiento());
         c.setEstado_adopcion(c.isEstado_adopcion());
 
         Mascota newObjeto = mascotaService.save(c);
