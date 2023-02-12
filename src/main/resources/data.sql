@@ -1,0 +1,13 @@
+INSERT INTO persona (id_persona, cedula, nombres, apellidos, fecha_nacimiento , genero, direccion, correo, telefono, celular) VALUES (1, '0105957922', 'ESTEBAN DAVID', 'BACUILIMA PEREZ', '2003-02-07', 'masculino', 'AUTOPISTA Y PUERTO DE PALOS', 'davidbacuilima13@gmail.com', '4024869', '0985081822');
+INSERT INTO fundacion (id_fundacion, ruc, nombre_fundacion, direccion, telefono, correo, acronimo, mision, logo, estado, id_persona)VALUES (1, '1234567890123', 'Fundacion de Mascotas Felices', 'Calle 123, Ciudad de Cuenca', '4024859', 'fundacionmascotasfelices@gmail.com', 'FMF', 'Ayudar a las mascotas necesitadas', 'mascotasFelices.png', true, 1);
+INSERT INTO usuario (id_usuario, username, password, rol, foto_perfil, estado, id_persona, id_fundacion)VALUES (1, 'admin', 'admin', 'SUPER_ADMINISTRADOR', 'admin.png', true, 1, 1);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(1,'¿Por qué desea adoptar un animal de compañía? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(2,'Si por algún motivo tuviera que cambiar de domicilio, ¿qué pasaría con su animal de compañía? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(3,'Con relación a la pregunta anterior ¿qué pasaría si los dueños de la nueva casa no aceptan animales de compañía? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(4,'¿Dónde dormirá el perro o gato adoptado? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(5,'¿Cuánto tiempo pasará solo el perro o gato adoptado? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(6,'¿Tienes otras mascotas en casa? ¿Qué pasará si no se llevan bien? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(7,'¿Todas las personas que viven en tu casa están de acuerdo con esta adopción? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(8,'¿Cómo es tu vivienda? ¿Es segura para un perro o gato? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(9,'¿Habrá quien lo saque a pasear y a hacer sus necesidades? *',true);
+INSERT INTO pregunta (id_pregunta, pregunta, estado) VALUES(10,'¿Te comprometes a ponerle collar con una plaquita con nombre y teléfono, y sacarlo a pasear con correa y bolsitas para recoger sus heces? *',true);

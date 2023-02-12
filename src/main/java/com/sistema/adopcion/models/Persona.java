@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class Persona {
     private String cedula;
     private String nombres;
     private String apellidos;
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private String genero;
     private String direccion;
     private String correo;
