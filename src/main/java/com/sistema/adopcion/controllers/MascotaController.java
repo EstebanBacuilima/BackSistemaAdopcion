@@ -39,6 +39,18 @@ public class MascotaController {
         return new ResponseEntity<>(mascotaService.listarMascotasDisponibles(), HttpStatus.OK);
     }
 
+//    @GetMapping("/listarDisponibles")
+//    public List<Mascota> listarMascotasDisponibles() {
+//        List<Mascota> mascotasDisponibles = new ArrayList<>();
+//        List<Mascota> todasLasMascotas = mascotaService.listarMascotasDisponibles();
+//        for (Mascota mascota : todasLasMascotas) {
+//            if (mascota.getFundacion().isEstado() == true) {
+//                mascotasDisponibles.add(mascota);
+//            }
+//        }
+//        return mascotasDisponibles;
+//    }
+//
     @GetMapping("/listarMascotasEnSeguimiento")
     public ResponseEntity<List<Mascota>> obtenerListaMascotasEnSeguimiento() {
         List<Mascota> listAlmacenar = mascotaService.findByAll();

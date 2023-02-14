@@ -53,6 +53,17 @@ public class UsuarioController {
         return usuarioService.login(username, password);
     }
 
+//    @RequestMapping(value = "login/{username}/{password}", method = RequestMethod.GET)
+//    @ResponseBody
+//    @CrossOrigin
+//    public Usuario login(@PathVariable String username, @PathVariable String password){
+//        Usuario usuario = usuarioService.login(username, password);
+//        if (usuario != null && usuario.getFundacion().isEstado() == true) {
+//            return usuario;
+//        }
+//        return null;
+//    }
+
     @GetMapping("porUsername/{username}")
     @ResponseBody
     public boolean porUsername(@PathVariable String username){

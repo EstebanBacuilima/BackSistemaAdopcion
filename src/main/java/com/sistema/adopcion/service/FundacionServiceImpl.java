@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
+import java.util.List;
+
 @Service
 public class FundacionServiceImpl extends GenericServiceImpl<Fundacion, Integer> implements FundacionService {
 

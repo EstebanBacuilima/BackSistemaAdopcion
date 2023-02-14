@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -65,6 +67,16 @@ public class FundacionController {
         return ResponseEntity.ok(newObjeto);
     }
 
+    @PutMapping("desactivar/{id}")
+    public ResponseEntity<Fundacion> desactivarFundacion(@PathVariable Integer id, @RequestBody Fundacion c) {
+        if (fundacionService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setEstado(c.isEstado());
+        Fundacion newObjeto = fundacionService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
+
     @RequestMapping(value = "/porPersona/{idPersona}", method = RequestMethod.GET)
     @ResponseBody
     public Fundacion porIdPersona(@PathVariable Integer idPersona){
@@ -76,4 +88,6 @@ public class FundacionController {
     public boolean porRuc(@PathVariable String ruc){
         return fundacionService.porRuc(ruc);
     }
+
+
 }

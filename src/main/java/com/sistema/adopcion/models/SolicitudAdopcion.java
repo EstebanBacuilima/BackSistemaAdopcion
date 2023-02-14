@@ -18,9 +18,8 @@ public class SolicitudAdopcion {
     @Column(name = "id_solicitud_adopcion")
     private Integer idSolicitudAdopcion;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_solicitud_adopcion")
-    private Date fecha_solicitud_adopcion;
+    private LocalDate fecha_solicitud_adopcion;
 
     @Column(name="estado")
     private char estado;

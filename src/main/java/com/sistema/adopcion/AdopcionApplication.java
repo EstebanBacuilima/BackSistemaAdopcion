@@ -16,8 +16,6 @@ import java.io.InputStreamReader;
 @SpringBootApplication
 public class AdopcionApplication {
 
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(AdopcionApplication.class, args);
 	}
@@ -42,7 +40,7 @@ public class AdopcionApplication {
 
 	@PostConstruct
 	public void init() {
-		//runSQLScript();
+		runSQLScript();
 	}
 
 

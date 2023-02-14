@@ -17,8 +17,7 @@ public class Seguimiento {
     private Integer idSeguimiento;
 
     @Column(name="fecha_seguimiento")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fecha_seguimiento;
+    private LocalDate fecha_seguimiento;
 
     @Column(name="descripcion_visita")
     private String descripcion_visita;
