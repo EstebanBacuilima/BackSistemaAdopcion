@@ -52,7 +52,7 @@ public class VoluntarioController {
             return ResponseEntity.notFound().build();
         }
         c.setArea_trabajo(c.getArea_trabajo());
-        c.setCargo(c.getCargo());
+//        c.setCargo(c.getCargo());
         c.setEstado(c.isEstado());
 
         Voluntario newObjeto = voluntarioService.save(c);
