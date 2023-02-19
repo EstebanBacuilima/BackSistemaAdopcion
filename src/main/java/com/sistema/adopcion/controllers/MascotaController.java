@@ -110,6 +110,16 @@ public class MascotaController {
         return ResponseEntity.ok(newObjeto);
     }
 
+    @PutMapping("desactivar/{id}")
+    public ResponseEntity<Mascota> desactivarMascota(@PathVariable Integer id, @RequestBody Mascota c) {
+        if (mascotaService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setEstado(c.isEstado());
+        Mascota newObjeto = mascotaService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
+
     @PutMapping("actualizarDueño/{id}")
     public ResponseEntity<Mascota> actualizarDueñoDeMascota(@PathVariable Integer id, @RequestBody Mascota c) {
         if (mascotaService.findById(id) == null) {

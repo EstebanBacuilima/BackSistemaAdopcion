@@ -84,5 +84,15 @@ public class UsuarioController {
         Usuario newObjeto = usuarioService.save(c);
         return ResponseEntity.ok(newObjeto);
     }
+
+    @PutMapping("desactivar/{id}")
+    public ResponseEntity<Usuario> desactivarUser(@PathVariable Integer id, @RequestBody Usuario c) {
+        if (usuarioService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setEstado(c.isEstado());
+        Usuario newObjeto = usuarioService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
 }
 
