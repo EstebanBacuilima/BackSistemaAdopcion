@@ -12,7 +12,7 @@ public interface MascotasRespository extends JpaRepository<Mascota, Integer> {
     @Query( value = "select * from mascota m where m.raza = :razas and m.estado_adopcion = true", nativeQuery = true)
     List<Mascota> buscarPorRaza(@Param("razas") String razas);
 
-    @Query(value = "select * from mascota m where m.estado_adopcion = true", nativeQuery = true)
+    @Query(value = "select * from mascota m where m.estado_adopcion = true and m.estado = true", nativeQuery = true)
     List<Mascota> listarMascotasDisponibles();
 
     List<Mascota> findByFundacionIdFundacion(Integer id_fundacion);
