@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/mascota")
@@ -51,16 +53,23 @@ public class MascotaController {
 //        return mascotasDisponibles;
 //    }
 //
-    @GetMapping("/listarMascotasEnSeguimiento")
-    public ResponseEntity<List<Mascota>> obtenerListaMascotasEnSeguimiento() {
-        List<Mascota> listAlmacenar = mascotaService.findByAll();
-        List<Mascota> listActivos = new ArrayList<>();
-        for (int i = 0 ; i < listAlmacenar.size() ; i++){
-            if (listAlmacenar.get(i).isEstado_seguimiento() == true){
-                listActivos.add(listAlmacenar.get(i));
-            }
-        }
-        return new ResponseEntity<>(listActivos, HttpStatus.OK);
+//    @GetMapping("/listarMascotasEnSeguimiento")
+//    public ResponseEntity<List<Mascota>> obtenerListaMascotasEnSeguimiento() {
+//        List<Mascota> listAlmacenar = mascotaService.findByAll();
+//        List<Mascota> listActivos = new ArrayList<>();
+//        for (int i = 0 ; i < listAlmacenar.size() ; i++){
+//            if (listAlmacenar.get(i).isEstado_seguimiento() == true){
+//                listActivos.add(listAlmacenar.get(i));
+//            }
+//        }
+//        return new ResponseEntity<>(listActivos, HttpStatus.OK);
+//    }
+
+    @GetMapping("/listarMascotasEnSeguimiento/{idFundacion}")
+    public ResponseEntity<List<Mascota>> obtenerListaMascotasEnSeguimiento(@PathVariable Integer idFundacion) {
+        List<Mascota> mascotasFundacion = mascotaService.porIdFundacion(idFundacion);
+        List<Mascota> mascotasEnSeguimiento = mascotasFundacion.stream().filter(mascota -> mascota.isEstado_seguimiento()).collect(Collectors.toList());
+        return new ResponseEntity<>(mascotasEnSeguimiento, HttpStatus.OK);
     }
 
     @GetMapping("/listarMacotasPorFundacion/{id_fundacion}")
