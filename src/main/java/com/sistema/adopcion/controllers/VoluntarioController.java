@@ -52,7 +52,19 @@ public class VoluntarioController {
             return ResponseEntity.notFound().build();
         }
         c.setArea_trabajo(c.getArea_trabajo());
-        c.setCargo(c.getCargo());
+//        c.setCargo(c.getCargo());
+        c.setEstado(c.isEstado());
+
+        Voluntario newObjeto = voluntarioService.save(c);
+        return ResponseEntity.ok(newObjeto);
+    }
+
+    @PutMapping("desactivar/{id}")
+    public ResponseEntity<Voluntario> desactivarVoluntario(@PathVariable Integer id, @RequestBody Voluntario c) {
+        if (voluntarioService.findById(id) == null) {
+            return ResponseEntity.notFound().build();
+        }
+        c.setArea_trabajo(c.getArea_trabajo());
         c.setEstado(c.isEstado());
 
         Voluntario newObjeto = voluntarioService.save(c);

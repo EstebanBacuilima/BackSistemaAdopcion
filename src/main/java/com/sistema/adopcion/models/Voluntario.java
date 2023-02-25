@@ -17,8 +17,8 @@ public class Voluntario {
     @Column(name="area_trabajo")
     private String area_trabajo;
 
-    @Column(name="cargo")
-    private String cargo;
+//    @Column(name="cargo")
+//    private String cargo;
 
     @Column(name="estado")
     private boolean estado;
