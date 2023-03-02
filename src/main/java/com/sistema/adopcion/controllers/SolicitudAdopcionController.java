@@ -26,6 +26,7 @@ public class SolicitudAdopcionController {
     @Autowired
     PreguntaService preguntaService;
 
+
     @PostMapping("/responderPreguntas")
     public ResponseEntity<Respuesta> crearRespuesta(@RequestBody Respuesta c) {
         return new ResponseEntity<>(respuestaService.save(c), HttpStatus.CREATED);
@@ -63,6 +64,12 @@ public class SolicitudAdopcionController {
     public ResponseEntity<List<SolicitudAdopcion>> getByUsuario(@PathVariable Integer idUsario) {
         return new ResponseEntity<>(solicitudAdopcionService.listarSolictudesPorUsuario(idUsario), HttpStatus.OK);
     }
+    @GetMapping("/listarPorEstados/{estado}/{idFundacion}")
+    public ResponseEntity<List<SolicitudAdopcion>> seguimientosPorEstados(@PathVariable String estado, @PathVariable Integer idFundacion) {
+        return new ResponseEntity<>(solicitudAdopcionService.listarPorEstado(estado,idFundacion), HttpStatus.OK);
+    }
+
+
     @PostMapping("/")
     public ResponseEntity<SolicitudAdopcion> crear(@RequestBody SolicitudAdopcion c) {
         return new ResponseEntity<>(solicitudAdopcionService.save(c), HttpStatus.CREATED);

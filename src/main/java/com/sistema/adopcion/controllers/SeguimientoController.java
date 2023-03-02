@@ -41,6 +41,12 @@ public class SeguimientoController {
         return new ResponseEntity<>(seguimientoService.listarSeguimientosPorMascota(idMascota), HttpStatus.OK);
     }
 
+    @GetMapping("/listarSeguimientosInformesPorMascota/{idMascota}")
+    public ResponseEntity<List<Seguimiento>> seguimientosInformesPorMascoa(@PathVariable Integer idMascota) {
+        return new ResponseEntity<>(seguimientoService.listarInformesSeguimientosPorMascota(idMascota), HttpStatus.OK);
+    }
+
+
     @GetMapping("/validarRegistros/{idMascota}/{fechaSeguimiento}")
     public boolean validarRegistros(@PathVariable Integer idMascota, @PathVariable String fechaSeguimiento) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");

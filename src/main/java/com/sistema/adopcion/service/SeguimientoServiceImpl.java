@@ -21,7 +21,13 @@ public class SeguimientoServiceImpl extends GenericServiceImpl<Seguimiento, Inte
     }
     @Override
     public List<Seguimiento> listarSeguimientosPorMascota(Integer idMascota) {
-        return seguimientoRepository.findByMascotaIdMascota(idMascota);
+//        return seguimientoRepository.findByMascotaIdMascota(idMascota);
+        return seguimientoRepository.findByMascota_IdMascotaAndEstado(idMascota, true);
+    }
+
+    @Override
+    public List<Seguimiento> listarInformesSeguimientosPorMascota(Integer idMascota) {
+        return seguimientoRepository.verificarInformesValidos(idMascota);
     }
 
     @Override
