@@ -40,7 +40,7 @@ public class AdopcionApplication {
 
 	@PostConstruct
 	public void init() {
-		//runSQLScript();
+		runSQLScript();
 	}
 
 
