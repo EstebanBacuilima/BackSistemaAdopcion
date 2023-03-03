@@ -55,6 +55,11 @@ public class SolicitudAdopcionController {
         return new ResponseEntity<>(solicitudAdopcionService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/listarSolicitudesPorMascotaUsuario/{idMascota}/{idPersona}")
+    public ResponseEntity<List<SolicitudAdopcion>> findBySoliPorMascotaUsuario(@PathVariable Integer idMascota,@PathVariable Integer idPersona) {
+        return new ResponseEntity<>(solicitudAdopcionService.findBySoliPorMascotaUsuario(idMascota,idPersona), HttpStatus.OK);
+    }
+
     @GetMapping("/listarSolicitudesPorFundacion/{id_fundacion}")
     public ResponseEntity<List<SolicitudAdopcion>> getByEmpresa(@PathVariable Integer id_fundacion) {
         return new ResponseEntity<>(solicitudAdopcionService.listarSolicitudesPorFundacion(id_fundacion), HttpStatus.OK);

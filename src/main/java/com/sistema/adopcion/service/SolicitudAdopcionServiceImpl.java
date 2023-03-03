@@ -31,6 +31,11 @@ public class SolicitudAdopcionServiceImpl extends GenericServiceImpl<SolicitudAd
         return solicitudDeAdopcionRepository.findByEstados(estado,idFundacion);
     }
 
+    @Override
+    public List<SolicitudAdopcion> findBySoliPorMascotaUsuario(Integer idMascota, Integer idUsuario) {
+        return solicitudDeAdopcionRepository.findBySoliPorMascotaUsuario(idMascota,idUsuario);
+    }
+
 
     @Override
     public List<SolicitudAdopcion> listarSolictudesPorUsuario(Integer idUsuario) {
