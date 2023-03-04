@@ -22,4 +22,7 @@ public interface SolicitudDeAdopcionRepository extends JpaRepository<SolicitudAd
     @Query(value = "select * from solicitud_adopcion sa  where id_mascota = :idMascota and id_usuario = :idUsuario", nativeQuery = true)
     List<SolicitudAdopcion> findBySoliPorMascotaUsuario(@Param("idMascota")Integer idMascota,@Param("idUsuario") Integer idUsuario);
 
+    @Query(value = "select s.id_solicitud_adopcion,s.estado,s.fecha_solicitud_adopcion,s.id_mascota,s.id_usuario,s.estado_dos from solicitud_adopcion s, mascota m  where s.id_mascota = m.id_mascota and m.id_fundacion = :idFundacion and s.estado_dos = false", nativeQuery = true)
+    List<SolicitudAdopcion> findSolicitudesPorFundacion(@Param("idFundacion")Integer idFundacion);
+
 }
