@@ -10,5 +10,6 @@ public interface SeguimientoService extends GenericService<Seguimiento, Integer>
 
     List<Seguimiento> listarSeguimientosPorMascota(Integer idMascota);
 
+    List<Seguimiento> listarInformesSeguimientosPorMascota(Integer idMascota);
     boolean verificarRegistro(Integer idMascota, Date fechaSeguimiento);
 }

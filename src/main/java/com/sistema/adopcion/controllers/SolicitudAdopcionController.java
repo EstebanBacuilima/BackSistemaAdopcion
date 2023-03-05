@@ -26,6 +26,7 @@ public class SolicitudAdopcionController {
     @Autowired
     PreguntaService preguntaService;
 
+
     @PostMapping("/responderPreguntas")
     public ResponseEntity<Respuesta> crearRespuesta(@RequestBody Respuesta c) {
         return new ResponseEntity<>(respuestaService.save(c), HttpStatus.CREATED);
@@ -54,15 +55,31 @@ public class SolicitudAdopcionController {
         return new ResponseEntity<>(solicitudAdopcionService.findByAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/listarSolicitudesPorMascotaUsuario/{idMascota}/{idPersona}")
+    public ResponseEntity<List<SolicitudAdopcion>> findBySoliPorMascotaUsuario(@PathVariable Integer idMascota,@PathVariable Integer idPersona) {
+        return new ResponseEntity<>(solicitudAdopcionService.findBySoliPorMascotaUsuario(idMascota,idPersona), HttpStatus.OK);
+    }
+
     @GetMapping("/listarSolicitudesPorFundacion/{id_fundacion}")
-    public ResponseEntity<List<SolicitudAdopcion>> getByEmpresa(@PathVariable Integer id_fundacion) {
+    public ResponseEntity<List<SolicitudAdopcion>> getByFundacion(@PathVariable Integer id_fundacion) {
         return new ResponseEntity<>(solicitudAdopcionService.listarSolicitudesPorFundacion(id_fundacion), HttpStatus.OK);
+    }
+
+    @GetMapping("/listarSolicitudesPorFundacionNotificaciones/{id_fundacion}")
+    public ResponseEntity<List<SolicitudAdopcion>> getByFundacionNotificaciones(@PathVariable Integer id_fundacion) {
+        return new ResponseEntity<>(solicitudAdopcionService.findSolicitudesPorFundacion(id_fundacion), HttpStatus.OK);
     }
 
     @GetMapping("/listarSolicitudesPorUsuario/{idUsario}")
     public ResponseEntity<List<SolicitudAdopcion>> getByUsuario(@PathVariable Integer idUsario) {
         return new ResponseEntity<>(solicitudAdopcionService.listarSolictudesPorUsuario(idUsario), HttpStatus.OK);
     }
+    @GetMapping("/listarPorEstados/{estado}/{idFundacion}")
+    public ResponseEntity<List<SolicitudAdopcion>> seguimientosPorEstados(@PathVariable String estado, @PathVariable Integer idFundacion) {
+        return new ResponseEntity<>(solicitudAdopcionService.listarPorEstado(estado,idFundacion), HttpStatus.OK);
+    }
+
+
     @PostMapping("/")
     public ResponseEntity<SolicitudAdopcion> crear(@RequestBody SolicitudAdopcion c) {
         return new ResponseEntity<>(solicitudAdopcionService.save(c), HttpStatus.CREATED);

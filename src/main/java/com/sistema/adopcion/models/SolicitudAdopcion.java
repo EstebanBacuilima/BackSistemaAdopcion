@@ -24,6 +24,9 @@ public class SolicitudAdopcion {
     @Column(name="estado")
     private char estado;
 
+    @Column(name="estadoDos")
+    private boolean estadoDos;
+
     @ManyToOne
     @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")
     private Usuario usuario;
