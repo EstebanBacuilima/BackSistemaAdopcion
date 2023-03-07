@@ -25,7 +25,7 @@ public class SolicitudAdopcion {
     private char estado;
 
     @Column(name="estadoDos")
-    private boolean estadoDos;
+    private char estadoDos;
 
     @ManyToOne
     @JoinColumn(name="id_usuario",referencedColumnName ="id_usuario")

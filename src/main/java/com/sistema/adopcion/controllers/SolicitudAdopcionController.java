@@ -70,6 +70,11 @@ public class SolicitudAdopcionController {
         return new ResponseEntity<>(solicitudAdopcionService.findSolicitudesPorFundacion(id_fundacion), HttpStatus.OK);
     }
 
+    @GetMapping("/listarSolicitudesPorUsuaroNotificaciones/{idUsuario}")
+    public ResponseEntity<List<SolicitudAdopcion>> getByUsuarioNotificaciones(@PathVariable Integer idUsuario) {
+        return new ResponseEntity<>(solicitudAdopcionService.findSolicitudesPorUsuario(idUsuario), HttpStatus.OK);
+    }
+
     @GetMapping("/listarSolicitudesPorUsuario/{idUsario}")
     public ResponseEntity<List<SolicitudAdopcion>> getByUsuario(@PathVariable Integer idUsario) {
         return new ResponseEntity<>(solicitudAdopcionService.listarSolictudesPorUsuario(idUsario), HttpStatus.OK);
