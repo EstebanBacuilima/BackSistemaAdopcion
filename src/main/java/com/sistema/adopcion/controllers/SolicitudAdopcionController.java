@@ -41,11 +41,21 @@ public class SolicitudAdopcionController {
         return new ResponseEntity<>(respuestaService.listarRespuestasSolicitante(idSolicitudAdopcion), HttpStatus.OK);
     }
 
+    @GetMapping("/listarRespuestasSolicitanteOrdenadas/{idSolicitudAdopcion}")
+    public ResponseEntity<List<Respuesta>> getRespuestasSolicitanteOrdenadas(@PathVariable Integer idSolicitudAdopcion) {
+        return new ResponseEntity<>(respuestaService.respuestasPreguntasOrdenadas(idSolicitudAdopcion), HttpStatus.OK);
+    }
+
 
 
     @GetMapping("/listarPreguntas")
     public ResponseEntity<List<Pregunta>> obtenerListaPreguntas() {
         return new ResponseEntity<>(preguntaService.findByAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listarPreguntasOrdenadas")
+    public ResponseEntity<List<Pregunta>> obtenerListaPreguntasOrdenadas() {
+        return new ResponseEntity<>(preguntaService.listarPreguntas(), HttpStatus.OK);
     }
 
     // NUEVO
