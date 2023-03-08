@@ -41,11 +41,21 @@ public class SolicitudAdopcionController {
         return new ResponseEntity<>(respuestaService.listarRespuestasSolicitante(idSolicitudAdopcion), HttpStatus.OK);
     }
 
+    @GetMapping("/listarRespuestasSolicitanteOrdenadas/{idSolicitudAdopcion}")
+    public ResponseEntity<List<Respuesta>> getRespuestasSolicitanteOrdenadas(@PathVariable Integer idSolicitudAdopcion) {
+        return new ResponseEntity<>(respuestaService.respuestasPreguntasOrdenadas(idSolicitudAdopcion), HttpStatus.OK);
+    }
+
 
 
     @GetMapping("/listarPreguntas")
     public ResponseEntity<List<Pregunta>> obtenerListaPreguntas() {
         return new ResponseEntity<>(preguntaService.findByAll(), HttpStatus.OK);
+    }
+
+    @GetMapping("/listarPreguntasOrdenadas")
+    public ResponseEntity<List<Pregunta>> obtenerListaPreguntasOrdenadas() {
+        return new ResponseEntity<>(preguntaService.listarPreguntas(), HttpStatus.OK);
     }
 
     // NUEVO
@@ -68,6 +78,11 @@ public class SolicitudAdopcionController {
     @GetMapping("/listarSolicitudesPorFundacionNotificaciones/{id_fundacion}")
     public ResponseEntity<List<SolicitudAdopcion>> getByFundacionNotificaciones(@PathVariable Integer id_fundacion) {
         return new ResponseEntity<>(solicitudAdopcionService.findSolicitudesPorFundacion(id_fundacion), HttpStatus.OK);
+    }
+
+    @GetMapping("/listarSolicitudesPorUsuaroNotificaciones/{idUsuario}")
+    public ResponseEntity<List<SolicitudAdopcion>> getByUsuarioNotificaciones(@PathVariable Integer idUsuario) {
+        return new ResponseEntity<>(solicitudAdopcionService.findSolicitudesPorUsuario(idUsuario), HttpStatus.OK);
     }
 
     @GetMapping("/listarSolicitudesPorUsuario/{idUsario}")

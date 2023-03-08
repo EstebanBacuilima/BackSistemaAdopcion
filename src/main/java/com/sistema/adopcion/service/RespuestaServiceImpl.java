@@ -26,4 +26,9 @@ public class RespuestaServiceImpl extends GenericServiceImpl<Respuesta, Integer>
     public List<Respuesta> listarRespuestasSolicitante(Integer idSolicitudAdopcion) {
         return respuestaRespository.findBySolicitudAdopcionIdSolicitudAdopcion(idSolicitudAdopcion);
     }
+
+    @Override
+    public List<Respuesta> respuestasPreguntasOrdenadas(Integer idSolicitudAdopcion) {
+        return respuestaRespository.respuestasPreguntasOrdenadas(idSolicitudAdopcion);
+    }
 }

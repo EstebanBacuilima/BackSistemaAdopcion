@@ -18,4 +18,7 @@ public interface SolicitudAdopcionService extends GenericService<SolicitudAdopci
 
     List<SolicitudAdopcion> findSolicitudesPorFundacion(Integer idFundacion);
 
+    List<SolicitudAdopcion> findSolicitudesPorUsuario(Integer idUsuario);
+
+
 }
